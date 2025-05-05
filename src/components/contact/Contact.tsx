@@ -46,16 +46,16 @@ const Contact = () => {
       );
   };
   return (
-    <div className="h-full flex gap-8 justify-between px-4" ref={ref}>
+    <div className="h-full flex flex-col gap-8 justify-between  md:flex-col lg:gap-[30px] lg:flex-row sm:flex-col md:gap-36"  ref={ref}>
       {/* Contact Section left */}
-      <div className="w-1/2 h-full flex items-center justify-center p-4">
+      <div className="w-full h-full flex items-center justify-center p-4 md:w-full md:h-[70%] lg:w-1/2 sm:w-full ">
         <motion.form
           ref={form}
           variants={listVariant}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           onSubmit={sendEmail}
-          className="w-full flex flex-col gap-5 bg-[rgba(2,2,45,0.187)] p-12 rounded-4xl"
+          className="w-full flex flex-col gap-5 bg-[rgba(2,2,45,0.187)] p-12 rounded-4xl xl:w-full"
         >
           <motion.h1 variants={listVariant} className="text-4xl font-semibold">
             {"Let's keep in touch"}
@@ -101,7 +101,7 @@ const Contact = () => {
         </motion.form>
       </div>
       {/* Contact Section right */}
-      <div className="w-1/2 h-full flex items-center justify-center p-12 bg-[rgba(2,2,45,0.187)] my-14 rounded-full rounded-br-none rounded-tl-none">
+      <div className="w-full h-[30%] flex items-center justify-center bg-[rgba(2,2,45,0.187)] rounded-full rounded-br-none rounded-tl-none md:w-[100%] md:h-[30%] lg:w-1/2 lg:h-[80%] sm:w-full sm:h-[30%]">
         <ContactSvg />
       </div>
     </div>

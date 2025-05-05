@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Speech = () => {
   return (
     <motion.div
-      className="w-1/2 flex justify-between gap-2 items-end "
+      className="hidden w-1/2 justify-between gap-2 items-end sm:hidden md:flex md:w-full lg:w-1/2 "
       animate={{ opacity: [0, 1] }}
       transition={{ duration: 1 }}
     >

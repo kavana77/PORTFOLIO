@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-interface Item {
+interface Iitem {
   id: number;
   img: string;
   title: string;
@@ -10,7 +10,7 @@ interface Item {
   link: string;
 }
 
-const items: Item[] = [
+const items: Iitem[] = [
   {
     id: 1,
     img: "/p1.jpg",
@@ -66,8 +66,8 @@ const textVariants = {
   },
 };
 
-const ListItem = ({ item }: { item: Item }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const ListItem = ({ item }: { item: Iitem }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: "-100px" });
 
   return (

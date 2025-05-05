@@ -52,28 +52,28 @@ const Service = () => {
   const isInView = useInView(ref, { margin: "-200px" });
   return (
     <div
-      className="flex h-screen w-screen overflow-hidden items-center justify-center"
+      className="flex h-screen w-screen overflow-hidden"
       ref={ref}
     >
       {/* Service Section Left */}
-      <div className="w-1/2 flex flex-col justify-center p-4 gap-6">
+      <div className="lg:w-1/2 w-full flex flex-col items-center justify-center md:w-1/2 lg:gap-6">
         <motion.h1
           variants={textVariants}
           animate={isInView ? "animate" : "initial"}
-          className="text-6xl md:text-7xl font-bold mb-6"
+          className="text-6xl lg:text-7xl font-bold mb-6"
         >
           How do i help?
         </motion.h1>
         <motion.div
           variants={listVariants}
           animate={isInView ? "animate" : "initial"}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 lg:w-[70%]"
         >
           {services.map((Service, index) => (
             <motion.div
               variants={listVariants}
               key={Service.id}
-              className="cursor-pointer flex rounded-2xl bg-[#2f213f] items-center gap-4 w-full p-6 md:w-3/4 "
+              className="cursor-pointer flex rounded-2xl bg-[#2f213f] items-center gap-4 w-full p-6 "
               onClick={() => setCurrentServiceId(Service.id)}
             >
               <div
@@ -96,13 +96,13 @@ const Service = () => {
             </motion.div>
           ))}
         </motion.div>
-        <div className="flex justify-between items-center mt-6 w-full gap-2">
+        <div className="flex items-center mt-6 w-full justify-between">
           <Counter from={0} to={104} text="Projects Completed" />
           <Counter from={0} to={72} text="Happy Clients" />
         </div>
       </div>
       {/* Service Section right*/}
-      <div className=" flex w-1/2 h-[80%] justify-center items-center">
+      <div className="hidden lg:w-1/2 lg:h-[80%] justify-center items-center  md:w-1/2 md:flex">
         {currentServiceId === 1 ? (
           <ComputerModelContainer />
         ) : currentServiceId === 2 ? (

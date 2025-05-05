@@ -12,7 +12,7 @@ function App() {
     }, 2000);
   }, []);
   return (
-    <div className="pl-10 pr-10 max-w-screen-2xl mx-auto scroll-smooth snap-y snap-mandatory overflow-x-hidden bg-gradient-to-b from-[#12071f] to-[#2f204e] text-white min-h-screen">
+    <div className="pl-10 pr-10 max-w-screen-full mx-auto scroll-smooth snap-y snap-mandatory overflow-x-hidden bg-gradient-to-b from-[#12071f] to-[#2f204e] text-white min-h-screen">
       {isLoading ? (
         <Skeleton className="h-full w-full bg-gray-500" />
       ) : (

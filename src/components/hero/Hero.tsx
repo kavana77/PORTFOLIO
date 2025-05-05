@@ -21,15 +21,15 @@ const followVariants = {
 };
 const Hero = () => {
   return (
-    <div className="h-screen relative flex overflow-hidden ">
+    <div className="h-screen relative flex flex-col overflow-hidden md:flex-row">
       {/* Left Section */}
-      <div className="flex w-1/2 flex-col justify-between p-6 ">
+      <div className="flex w-full flex-col items-center text-center justify-between p-6 md:w-1/2 md:items-start md:text-left">
         {/* Title */}
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="mt-8 text-8xl font-bold text-pink-400 "
+          className="mt-8 text-4xl text-center font-bold text-pink-400 sm:text-5xl md:text-5xl xl:text-8xl lg:text-8xl"
         >
           Hey There,
           <br />
@@ -40,18 +40,18 @@ const Hero = () => {
           variants={awardVariants}
           initial="initial"
           animate="animate"
-          className="mt-6 w-1/3 xl:w-[60%] "
+          className="mt-6 w-full justify-center md:w-full lg:w-1/2 lg:text-center"
         >
           <motion.h2 variants={awardVariants} className="text-xl font-semibold">
             Top Rated Designer
           </motion.h2>
           <motion.p
             variants={awardVariants}
-            className="my-2 text-gray-300 text-sm"
+            className="my-2 w-full text-center text-gray-300 text-sm "
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </motion.p>
-          <motion.div variants={awardVariants} className="flex gap-2">
+          <motion.div variants={awardVariants} className="flex justify-center gap-2">
             <motion.img
               variants={awardVariants}
               className="h-9 w-9 bg-white rounded-full p-2"
@@ -103,13 +103,13 @@ const Hero = () => {
         </motion.a>
       </div>
       {/* Right Section */}
-      <div className="flex flex-col  items-end w-1/2 justify-between">
+      <div className="flex flex-col items-end w-full justify-end md:w-1/2 md:justify-between ">
         {/* FOLLOW */}
         <motion.div
           variants={followVariants}
           initial="initial"
           animate="animate"
-          className="flex flex-col items-center gap-3 rounded-br-xl bg-[#2f204e] p-3 "
+          className="hidden flex-col items-center gap-3 rounded-br-xl bg-[#2f204e] p-3 md:flex"
         >
           <motion.a className="h-6 w-6" variants={followVariants}>
             <img src="/instagram.png" alt="" />
@@ -122,8 +122,8 @@ const Hero = () => {
           </motion.a>
 
           {/* FOLLOW TEXT */}
-          <motion.div variants={followVariants} className="w-7 h-5 ">
-            <div className="bg-[#dd4c62] rotate-90 px-2 text-xs flex items-center justify-center rounded-br-md w-max h-full origin-top-left-translate-y-6 ">
+          <motion.div variants={followVariants} className="w-7 h-5  ">
+            <div className="bg-[#dd4c62] rotate-90 px-2 text-xs flex items-center justify-center rounded-br-md w-max h-full">
               FOLLOW ME
             </div>
           </motion.div>
@@ -131,7 +131,7 @@ const Hero = () => {
         {/* BUBBLE */}
         <Speech />
         {/* CERTIFICATE */}
-        <div className="flex flex-col item-center text-center text-gray-300 gap-2">
+        <div className="hidden flex-col item-center text-center text-gray-300 gap-2 md:flex">
           <img className="h-16 w-16" src="/certificate.png" alt="" />
           <div className="text-sm leading-6">
             LMA CERTIFIED
@@ -144,7 +144,7 @@ const Hero = () => {
         {/* CONTACT BUTTON */}
         <motion.a
           href="/#contact"
-          className="mb-12 w-max"
+          className="hidden mb-12 w-max md:flex"
           animate={{ x: [200, 0], opacity: [0, 1] }}
           transition={{ duration: 2 }}
         >
@@ -188,13 +188,13 @@ const Hero = () => {
         </motion.a>
       </div>
       {/* Background */}
-      <div className="absolute w-full h-full top-0 left-0 ">
+      <div className="absolute top-auto bottom-0 h-[50%] sm:h-[60%] sm:right-0 sm:left-0 lg:w-full lg:h-full lg:top-0 left-0 ">
         <Canvas>
           <Suspense fallback="loading...">
             <Shape />
           </Suspense>
         </Canvas>
-        <div className="absolute bottom-0 right-0 left-0 m-auto w-max h-[70%] ">
+        <div className="absolute bottom-0 right-0 left-0 m-auto w-max h-[70%] sm:h-[70%] lg:h-[70%] md:h-[80%] ">
           <img
             src="/hero.png"
             alt="Hero"
