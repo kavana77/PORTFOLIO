@@ -1,7 +1,18 @@
 import { useGLTF } from "@react-three/drei";
+import * as THREE from "three"; 
+import { JSX } from "react";
+export function ComputerModel(props: JSX.IntrinsicElements['group']) {
+  const { nodes, materials } = useGLTF("/computerModel.glb") as unknown as {
+    nodes: {
+      Object_4: THREE.Mesh;
+      Object_6: THREE.Mesh;
+      Object_8: THREE.Mesh;
+    };
+    materials: {
+      MacBookPro: THREE.Material;
+    };
+  };
 
-export function ComputerModel(props) {
-  const { nodes, materials } = useGLTF("/computerModel.glb");
   return (
     <group {...props} dispose={null}>
       <group position={[0.121, 0.007, 0]}>

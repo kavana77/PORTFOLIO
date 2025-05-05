@@ -9,6 +9,12 @@
     }
   ],
   "compilerOptions": {
+     "target": "es5",
+    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",  
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
