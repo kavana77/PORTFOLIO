@@ -1,14 +1,11 @@
-import { animate, useInView } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
-interface ICounter {
-  from: number;
-  to: number;
-  text: string;
-}
+import { animate } from "framer-motion";
+import { useState, useEffect } from "react";
+import { ICounter } from "../../types/data";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
+
 const Counter: React.FC<ICounter> = ({ from, to, text }) => {
   const [count, setCount] = useState(from);
-  const ref = useRef(null);
-  const isInView = useInView(ref);
+  const {ref, isInView} = useInViewAnimation()
   useEffect(() => {
     const animation = animate(from, to, {
       duration: 4,

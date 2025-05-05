@@ -1,27 +1,14 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import ContactSvg from "./ContactSvg";
 import { useState, FormEvent, useRef } from "react";
-const listVariant = {
-  initial: {
-    x: 100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      staggerChildren: 0.2,
-    },
-  },
-};
+import { listVariant } from "../../utils/variants";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const ref = useRef(null);
-  const form = useRef<HTMLFormElement | null>(null);
-  const isInView = useInView(ref, { margin: "-200px" });
+  const form = useRef<HTMLFormElement>(null);
+  const { ref, isInView } = useInViewAnimation();
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     emailjs
@@ -46,7 +33,10 @@ const Contact = () => {
       );
   };
   return (
-    <div className="h-full flex flex-col gap-8 justify-between  md:flex-col lg:gap-[30px] lg:flex-row sm:flex-col md:gap-36"  ref={ref}>
+    <div
+      className="h-full flex flex-col gap-8 justify-between  md:flex-col lg:gap-[30px] lg:flex-row sm:flex-col md:gap-36"
+      ref={ref}
+    >
       {/* Contact Section left */}
       <div className="w-full h-full flex items-center justify-center p-4 md:w-full md:h-[70%] lg:w-1/2 sm:w-full ">
         <motion.form

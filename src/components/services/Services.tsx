@@ -1,60 +1,18 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Counter from "./Counter";
 import ComputerModelContainer from "./computer/ComputerModelContainer";
 import MugModelContainer from "./mug/MugModelContainer";
 import ConsoleModelContainer from "./console/ConsoleModelContainer";
-const textVariants = {
-  initial: {
-    x: -100,
-    y: -100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
-const listVariants = {
-  initial: {
-    x: -100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.5,
-    },
-  },
-};
+import { services } from "../../utils/constant";
+import { textVariants, listVariants } from "../../utils/variants";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 
-type ServiceType = {
-  id: number;
-  img: string;
-  title: string;
-  counter: number;
-};
-
-const services: ServiceType[] = [
-  { id: 1, img: "/service1.png", title: "Web Development", counter: 35 },
-  { id: 2, img: "/service2.png", title: "Product Design", counter: 23 },
-  { id: 3, img: "/service3.png", title: "Branding", counter: 46 },
-];
 const Service = () => {
   const [currentServiceId, setCurrentServiceId] = useState<number>(1);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-200px" });
+  const { ref, isInView } = useInViewAnimation();
   return (
-    <div
-      className="flex h-screen w-screen overflow-hidden"
-      ref={ref}
-    >
+    <div className="flex h-screen w-screen overflow-hidden" ref={ref}>
       {/* Service Section Left */}
       <div className="lg:w-1/2 w-full flex flex-col items-center justify-center md:w-1/2 lg:gap-6">
         <motion.h1

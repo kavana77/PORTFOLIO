@@ -3,22 +3,7 @@ import Speech from "./Speech";
 import { Suspense } from "react";
 import Shape from "./Shape";
 import { Canvas } from "@react-three/fiber";
-const awardVariants = {
-  initial: { x: -100, opacity: 0 },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 1, staggerChildren: 0.2 },
-  },
-};
-const followVariants = {
-  initial: { y: -100, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 1, staggerChildren: 0.2 },
-  },
-};
+import { awardVariants, followVariants } from "../../utils/variants";
 const Hero = () => {
   return (
     <div className="h-screen relative flex flex-col overflow-hidden md:flex-row">
@@ -29,7 +14,7 @@ const Hero = () => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="mt-8 text-4xl text-center font-bold text-pink-400 sm:text-5xl md:text-5xl xl:text-8xl lg:text-8xl"
+          className="text-4xl text-center font-bold text-pink-400 sm:text-5xl md:text-6xl xl:text-8xl lg:text-8xl"
         >
           Hey There,
           <br />
@@ -40,7 +25,7 @@ const Hero = () => {
           variants={awardVariants}
           initial="initial"
           animate="animate"
-          className="mt-6 w-full justify-center md:w-full lg:w-1/2 lg:text-center"
+          className="mt-6 w-full justify-center md:w-full md:text-center lg:w-1/2 lg:text-center"
         >
           <motion.h2 variants={awardVariants} className="text-xl font-semibold">
             Top Rated Designer
@@ -51,7 +36,10 @@ const Hero = () => {
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </motion.p>
-          <motion.div variants={awardVariants} className="flex justify-center gap-2">
+          <motion.div
+            variants={awardVariants}
+            className="flex justify-center gap-2"
+          >
             <motion.img
               variants={awardVariants}
               className="h-9 w-9 bg-white rounded-full p-2"
@@ -122,7 +110,7 @@ const Hero = () => {
           </motion.a>
 
           {/* FOLLOW TEXT */}
-          <motion.div variants={followVariants} className="w-7 h-5  ">
+          <motion.div variants={followVariants} className="w-7 h-5">
             <div className="bg-[#dd4c62] rotate-90 px-2 text-xs flex items-center justify-center rounded-br-md w-max h-full">
               FOLLOW ME
             </div>
