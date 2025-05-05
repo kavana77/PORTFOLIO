@@ -5,7 +5,7 @@ import { items } from "../../utils/constant";
 
 const Portfolio = () => {
   const indexRef = useRef(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (!containerRef.current) return;
