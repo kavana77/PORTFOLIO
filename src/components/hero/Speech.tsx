@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Speech = () => {
   return (
     <motion.div
-      className="hidden w-1/2 justify-between gap-2 items-end sm:hidden md:flex md:w-full lg:w-1/2 "
+      className="mt-12 hidden w-1/2 justify-between gap-2 items-end sm:hidden md:flex md:w-full lg:w-1/2 "
       animate={{ opacity: [0, 1] }}
       transition={{ duration: 1 }}
     >
@@ -11,9 +11,9 @@ const Speech = () => {
         <TypeAnimation
           sequence={[
             1000,
-            "Same substring at the start will only be typed out once, initially",
+            "Hi, I'm Kavana — a passionate Full Stack Developer.",
             1000,
-            "Lorem ipsum dolor sit amet lerinat consectetur adipisicing.",
+            "I love building responsive web apps with React & Node.js.",
             1000,
           ]}
           wrapper="span"
