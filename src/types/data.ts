@@ -1,3 +1,4 @@
+
 export interface Iitem {
   id: number;
   img: string;
@@ -18,3 +19,4 @@ export interface ICounter {
   to: number;
   text: string;
 }
+

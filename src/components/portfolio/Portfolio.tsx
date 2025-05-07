@@ -1,7 +1,8 @@
 import { useRef } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ListItem from "./ListItem";
 import { items } from "../../utils/constant";
+import { motion } from "framer-motion";
 
 const Portfolio = () => {
   const indexRef = useRef(0);
@@ -25,14 +26,35 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-      {/* Chevron Left */}
-      <div
-        onClick={() => scroll("left")}
-        className="text-5xl text-gray-700 cursor-pointer absolute left-5 top-1/2 transform -translate-y-1/2 z-10 select-none"
+    <div className="relative w-full  h-screen  overflow-hidden flex flex-col items-center justify-center">
+   {/* Animated Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="mt-2 text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 drop-shadow-md mb-10"
       >
-        <FaChevronLeft />
-      </div>
+        ✨ My Creative Work ✨
+      </motion.h1>
+
+      {/* Chevron Left */}
+<motion.div
+  onClick={() => scroll("left")}
+  whileHover={{ scale: 1.2 }}
+  whileTap={{ scale: 0.9 }}
+  className="absolute left-0 md:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 p-3 rounded-full shadow-lg hover:shadow-pink-400/60 cursor-pointer"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-white animate-pulse"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+</motion.div>
+
 
       {/* Scrollable Items */}
       <div ref={containerRef} className="w-full h-full overflow-hidden">
@@ -53,12 +75,23 @@ const Portfolio = () => {
       </div>
 
       {/* Chevron Right */}
-      <div
-        onClick={() => scroll("right")}
-        className="text-5xl text-gray-700 cursor-pointer absolute right-5 top-1/2 transform -translate-y-1/2 z-10 select-none"
-      >
-        <FaChevronRight />
-      </div>
+  <motion.div
+  onClick={() => scroll("right")}
+  whileHover={{ scale: 1.2 }}
+  whileTap={{ scale: 0.9 }}
+  className="absolute right-0 md:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 p-3 rounded-full shadow-lg hover:shadow-purple-400/60 cursor-pointer"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 text-white animate-pulse"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+</motion.div>
+
     </div>
   );
 };

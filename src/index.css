@@ -3,19 +3,7 @@
 
 
 
-body{
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom, #12071f, #2f204e);
-  color: white;
-  scroll-snap-type: y mandatory;
-}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

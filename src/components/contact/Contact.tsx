@@ -34,67 +34,81 @@ const Contact = () => {
   };
   return (
     <div
-      className="h-full flex flex-col gap-8 justify-between  md:flex-col lg:gap-[30px] lg:flex-row sm:flex-col md:gap-36"
-      ref={ref}
+  className="min-h-screen flex flex-col-reverse gap-12 items-center justify-center px-4 py-10 md:flex-col-reverse lg:flex-row lg:gap-24 xl:gap-36"
+  ref={ref}
+>
+  {/* Left: Form Section */}
+  <div className="w-full max-w-xl flex items-center justify-center">
+    <motion.form
+      ref={form}
+      variants={listVariant}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      onSubmit={sendEmail}
+      className="w-full h-full flex flex-col gap-5 bg-[rgba(2,2,45,0.187)] p-6 sm:p-10 rounded-3xl"
     >
-      {/* Contact Section left */}
-      <div className="w-full h-full flex items-center justify-center p-4 md:w-full md:h-[70%] lg:w-1/2 sm:w-full ">
-        <motion.form
-          ref={form}
-          variants={listVariant}
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          onSubmit={sendEmail}
-          className="w-full flex flex-col gap-5 bg-[rgba(2,2,45,0.187)] p-12 rounded-4xl xl:w-full"
-        >
-          <motion.h1 variants={listVariant} className="text-4xl font-semibold">
-            {"Let's keep in touch"}
-          </motion.h1>
+      <motion.h1
+        variants={listVariant}
+        className="text-3xl sm:text-4xl font-semibold text-white"
+      >
+        Let's keep in touch
+      </motion.h1>
 
-          <motion.div variants={listVariant} className="flex flex-col gap-2">
-            <label>Name</label>
-            <input
-              name="user_username"
-              className="p-2 rounded-md border-none bg-white text-gray-600"
-              type="text"
-              placeholder="Enter your name"
-            />
-          </motion.div>
-          <motion.div variants={listVariant} className="flex flex-col gap-2">
-            <label>Email</label>
-            <input
-              name="user_email"
-              className="p-2 rounded-md border-none bg-white text-gray-600"
-              type="email"
-              placeholder="example@gmail.com"
-            />
-          </motion.div>
-          <motion.div variants={listVariant} className="flex flex-col gap-2">
-            <label>Message</label>
-            <textarea
-              name="user_message"
-              className="p-2 rounded-md border-none bg-white text-gray-900"
-              rows={10}
-              placeholder="Write your message..."
-            ></textarea>
-          </motion.div>
-          <motion.button
-            variants={listVariant}
-            className="bg-[#dd4c62] text-white p-4 border-none rounded-2xl"
-          >
-            Send
-          </motion.button>
-          {success && (
-            <span className="text-green-600">Your message has been sent!</span>
-          )}
-          {error && <span className="text-red-600">Something went wrong!</span>}
-        </motion.form>
-      </div>
-      {/* Contact Section right */}
-      <div className="w-full h-[30%] flex items-center justify-center bg-[rgba(2,2,45,0.187)] rounded-full rounded-br-none rounded-tl-none md:w-[100%] md:h-[30%] lg:w-1/2 lg:h-[80%] sm:w-full sm:h-[30%]">
-        <ContactSvg />
-      </div>
-    </div>
+      <motion.div variants={listVariant} className="flex flex-col gap-2">
+        <label className="text-white">Name</label>
+        <input
+          name="user_username"
+          className="p-3 rounded-md bg-white text-gray-700"
+          type="text"
+          placeholder="Enter your name"
+          required
+        />
+      </motion.div>
+
+      <motion.div variants={listVariant} className="flex flex-col gap-2">
+        <label className="text-white">Email</label>
+        <input
+          name="user_email"
+          className="p-3 rounded-md bg-white text-gray-700"
+          type="email"
+          placeholder="example@gmail.com"
+          required
+        />
+      </motion.div>
+
+      <motion.div variants={listVariant} className="flex flex-col gap-2">
+        <label className="text-white">Message</label>
+        <textarea
+          name="user_message"
+          className="p-3 rounded-md bg-white text-gray-800"
+          rows={6}
+          placeholder="Write your message..."
+          required
+        ></textarea>
+      </motion.div>
+
+      <motion.button
+        variants={listVariant}
+        className="bg-[#dd4c62] text-white p-3 rounded-xl hover:opacity-90 transition"
+      >
+        Send
+      </motion.button>
+
+      {success && (
+        <span className="text-green-400">Your message has been sent!</span>
+      )}
+      {error && <span className="text-red-400">Something went wrong!</span>}
+    </motion.form>
+  </div>
+
+  {/* Right: SVG Section */}
+<div className="hidden lg:flex w-full max-w-xl justify-center items-center">
+  <div className="w-full h-full p-4 sm:p-10">
+    <ContactSvg />
+  </div>
+</div>
+</div>
+
   );
 };
 export default Contact;

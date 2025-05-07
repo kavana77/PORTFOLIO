@@ -6,60 +6,66 @@ import { Canvas } from "@react-three/fiber";
 import { awardVariants, followVariants } from "../../utils/variants";
 const Hero = () => {
   return (
-    <div className="h-screen relative flex flex-col overflow-hidden md:flex-row">
+    <div className="h-screen relative flex flex-col overflow-hidden lg:flex-row">
       {/* Left Section */}
-      <div className="flex w-full flex-col items-center text-center justify-between p-6 md:w-1/2 md:items-start md:text-left">
+      <div className="flex w-full flex-col items-center text-center justify-between lg:w-1/2  lg:items-start  xl:w-1/2 ">
         {/* Title */}
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-4xl text-center font-bold text-pink-400 sm:text-5xl md:text-6xl xl:text-8xl lg:text-8xl"
+          className="text-4xl text-center font-bold text-pink-400 sm:text-5xl md:text-7xl xl:text-8xl lg:text-7xl lg:mt-10"
         >
           Hey There,
           <br />
           <span className="text-white">{"I'm Kavana"}</span>
         </motion.h1>
         {/* Awards */}
-        <motion.div
-          variants={awardVariants}
-          initial="initial"
-          animate="animate"
-          className="mt-6 w-full justify-center md:w-full md:text-center lg:w-1/2 lg:text-center"
-        >
-          <motion.h2 variants={awardVariants} className="text-xl font-semibold">
-            Top Rated Designer
-          </motion.h2>
-          <motion.p
-            variants={awardVariants}
-            className="my-2 w-full text-center text-gray-300 text-sm "
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </motion.p>
-          <motion.div
-            variants={awardVariants}
-            className="flex justify-center gap-2"
-          >
-            <motion.img
-              variants={awardVariants}
-              className="h-9 w-9 bg-white rounded-full p-2"
-              src="/award1.png"
-              alt="award1"
-            />
-            <motion.img
-              variants={awardVariants}
-              className="h-9 w-9 bg-white rounded-full p-2"
-              src="/award2.png"
-              alt="award2"
-            />
-            <motion.img
-              variants={awardVariants}
-              className="h-9 w-9 bg-white rounded-full p-2"
-              src="/award3.png"
-              alt="award3"
-            />
-          </motion.div>
-        </motion.div>
+<motion.div
+  variants={awardVariants}
+  initial="initial"
+  animate="animate"
+  className="mt-6 flex w-full max-w-md flex-col items-center text-center gap-3 md:mt-10 lg:mt-0 lg:w-1/2"
+>
+  <motion.h2
+    variants={awardVariants}
+    className="text-xl font-semibold text-white"
+  >
+    Top Rated Designer
+  </motion.h2>
+
+  <motion.p
+    variants={awardVariants}
+    className="text-sm text-gray-300 "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  </motion.p>
+
+  <motion.div
+    variants={awardVariants}
+    className="flex justify-center gap-3"
+  >
+    <motion.img
+      variants={awardVariants}
+      className="h-10 w-10 bg-white rounded-full p-2"
+      src="/award1.png"
+      alt="award1"
+    />
+    <motion.img
+      variants={awardVariants}
+      className="h-10 w-10 bg-white rounded-full p-2"
+      src="/award2.png"
+      alt="award2"
+    />
+    <motion.img
+      variants={awardVariants}
+      className="h-10 w-10 bg-white rounded-full p-2"
+      src="/award3.png"
+      alt="award3"
+    />
+  </motion.div>
+</motion.div>
+
         {/* SCROLL SVG */}
         <motion.a
           animate={{ y: [0, 5], opacity: [0, 1, 0] }}
@@ -91,7 +97,7 @@ const Hero = () => {
         </motion.a>
       </div>
       {/* Right Section */}
-      <div className="flex flex-col items-end w-full justify-end md:w-1/2 md:justify-between ">
+      <div className="hidden xl:flex flex-col items-end w-full justify-end md:w-1/2 md:justify-between lg:flex ">
         {/* FOLLOW */}
         <motion.div
           variants={followVariants}
@@ -176,7 +182,7 @@ const Hero = () => {
         </motion.a>
       </div>
       {/* Background */}
-      <div className="absolute top-auto bottom-0 h-[50%] sm:h-[60%] sm:right-0 sm:left-0 lg:w-full lg:h-full lg:top-0 left-0 ">
+      <div className="absolute left-0 right-0 bottom-0 h-[50%] sm:h-[60%] sm:right-0 sm:left-0 lg:w-full lg:h-[80%]">
         <Canvas>
           <Suspense fallback="loading...">
             <Shape />
