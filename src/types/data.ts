@@ -1,4 +1,3 @@
-
 export interface Iitem {
   id: number;
   img: string;

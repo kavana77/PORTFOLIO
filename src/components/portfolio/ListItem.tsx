@@ -18,8 +18,12 @@ const ListItem = ({ item }: { item: Iitem }) => {
         animate={isInView ? "animate" : "initial"}
         className="w-full lg:w-1/2 flex justify-center rounded-xl overflow-hidden relative"
       >
-       
-        <Tilt glareEnable={true} glareMaxOpacity={0.3} scale={1.02} transitionSpeed={400}>
+        <Tilt
+          glareEnable={true}
+          glareMaxOpacity={0.3}
+          scale={1.02}
+          transitionSpeed={400}
+        >
           <img
             src={item.img}
             alt={item.title}
