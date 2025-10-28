@@ -49,6 +49,7 @@ const ListItem = ({ item }: { item: Iitem }) => {
         <motion.p className="text-gray-600 text-sm sm:text-base">
           {item.desc}
         </motion.p>
+        <motion.a href={item.github} className="hover:underline cursor-pointer">Github</motion.a>
         <motion.a href={item.link} className="self-center lg:self-start">
           <button className="bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 text-white px-5 py-2 rounded-lg font-medium shadow-lg hover:scale-105 transition-all duration-300">
             View Project
